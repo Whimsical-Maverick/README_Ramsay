@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReadMe_Analyser</title>
+    <link rel="stylesheet" href="UI.css">
+
+</head>
+<body>
+    <main>
+        <section id="Header">
+            <div id="head">
+                <h1>Lets See what you got</h1>
+            </div>
+            <div id="main_body">
+                <form id='form' method="POST">
+                    <input id='input' name="url" placeholder="Enter the repository url">
+                    <button id="submit" type="submit">Get Report</button>
+                </form>
+            </div>
+            <div id="report">
+                <label for = "output">Response</label>
+                <textarea id="output">
+                    
+                </textarea>
+            </div>
+        </section>
+    </main>
+    <script src="Logic.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</body>
+</html>

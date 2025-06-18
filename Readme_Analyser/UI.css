@@ -1,0 +1,308 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+/* Cool background effect I found online */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.2) 0%, transparent 50%);
+    z-index: -1;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Main container styling */
+#Header {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 24px;
+    padding: 40px;
+    max-width: 800px;
+    width: 100%;
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    animation: slideIn 0.8s ease-out;
+}
+
+/* Nice slide-in animation */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#head {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* Title styling - spent way too much time on this */
+#head h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #ffffff 0%, #e0e7ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 10px;
+    letter-spacing: -0.02em;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    }
+    to {
+        text-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
+    }
+}
+
+#main_body {
+    margin-bottom: 40px;
+}
+
+#form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+/* Input field styling */
+#input {
+    width: 100%;
+    max-width: 500px;
+    padding: 16px 24px;
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    color: #ffffff;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+#input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+#input:focus {
+    border-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 
+        0 0 0 4px rgba(255, 255, 255, 0.1),
+        0 8px 25px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Button with fancy hover effect */
+#submit {
+    padding: 16px 32px;
+    font-size: 16px;
+    font-weight: 600;
+    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+    color: white;
+    border: none;
+    border-radius: 16px;
+    cursor: pointer;
+or: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(79, 70, 229, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Shimmer effect - probably overkill but looks cool */
+#submit::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+#submit:hover::before {
+    left: 100%;
+}
+
+#submit:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(79, 70, 229, 0.6);
+}
+
+#submit:active {
+    transform: translateY(-1px);
+}
+
+/* Report section */
+#report {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+#report label {
+    font-size: 18px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 8px;
+}
+
+/* Output textarea */
+#output {
+    width: 100%;
+    min-height: 300px;
+    padding: 20px;
+    font-size: 14px;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace; /* monospace for code */
+    background: rgba(0, 0, 0, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    color: #ffffff;
+    backdrop-filter: blur(10px);
+    resize: vertical;
+    outline: none;
+    transition: all 0.3s ease;
+    line-height: 1.6;
+}
+
+#output:focus {
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1);
+}
+
+#output::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+/* Loading state - might need this later */
+.loading {
+    position: relative;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #ffffff;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Mobile responsiveness - always forget this initially */
+@media (max-width: 768px) {
+    #Header {
+        padding: 30px 20px;
+        margin: 10px;
+    }
+    
+    #head h1 {
+        font-size: 2.2rem;
+    }
+    
+    #form {
+        gap: 16px;
+    }
+    
+    #input, #submit {
+        padding: 14px 20px;
+        font-size: 15px;
+    }
+    
+    #output {
+        min-height: 250px;
+        padding: 16px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    #head h1 {
+        font-size: 1.8rem;
+    }
+    
+    #Header {
+        padding: 20px 15px;
+    }
+    
+    #input, #submit {
+        padding: 12px 16px;
+        font-size: 14px;
+    }    
+}
+
+/* Some utility classes for later use */
+.success {
+    border-color: rgba(34, 197, 94, 0.5) !important;
+    box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.1) !important;
+}
+
+.error {
+    border-color: rgba(239, 68, 68, 0.5) !important;
+    box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.1) !important;
+}
+
+/* Custom scrollbar because default ones are ugly */
+#output::-webkit-scrollbar {
+    width: 8px;
+}
+
+#output::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+#output::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+}
+
+#output::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
